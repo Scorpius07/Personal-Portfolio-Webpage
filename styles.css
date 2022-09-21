@@ -6,6 +6,8 @@
     #4d4d4d,
     #1b1919 70%
   );
+  --blackish: #303841;
+  --reddish: #be3144;
   scroll-behavior: smooth;
 }
 
@@ -24,7 +26,7 @@ body {
 #navbar {
   width: 100vw;
   height: 12vh;
-  background-color: #920606;
+  background-color: var(--reddish);
   position: fixed;
   display: flex;
   justify-content: flex-end;
@@ -58,27 +60,27 @@ body {
 }
 
 h1 {
-  font-size: 60px;
+  font-size: 56px;
   font-family: 'Montserrat', sans-serif;
 }
 
-p {
+#welcome p {
   font-family: 'Raleway', sans-serif;
   padding: 10px;
-  font-size: 35px;
+  font-size: 32px;
   font-style: italic;
-  color: #be3144;
+  color: var(--reddish);
 }
 
 /* Projects Section */
 #projects {
-  width: 100vw;
   background: var(--hover-and-bg-color);
+  padding: 25px 0;
 }
 
 #projects h2 {
   padding: 75px 20px 5px;
-  margin-bottom: 20px;
+  margin-bottom: 75px;
   border-bottom: white solid 3px;
   border-radius: 2px;
   font-size: 36px;
@@ -86,16 +88,17 @@ p {
 }
 
 #projects-grid {
-  width: 100vw;
   margin: 2em;
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: .45fr .45fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   justify-content: center;
-  gap: 2em;
+  align-items: center;
+  gap: 2.5em;
 }
 
 .project {
+  height: 100%;
   border: 1px solid black;
   display: grid;
   grid-template-rows: 4fr 1fr;
@@ -115,25 +118,61 @@ p {
 .project .title-link {
   width: 100%;
   height: 100%;
-  grid-area: 2 / 1 / 3 / 2;
   text-decoration: none;
   font-size: 20px;
   color: var(--darkish-white);
   background: var(--gradient-bg-color);
+  grid-area: 2 / 1 / 3 / 2;
 }
 
 .project .project-title {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.cont {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+}
+
+#show-all-projects-btn {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Calibri', sans-serif;
+  font-size: 20px;
+  color: var(--darkish-white);
+  background-color: var(--blackish);
+  border-radius: 4px;
+  padding: 5px 20px;
 }
 
-#survey-form {
-  grid-area: 1 / 1 / 2 / 2;
+#show-all-projects-btn:hover {
+  background-color: var(--reddish);
+}
+
+#arrow {
+  font-weight: 500;
+  font-size: 32px;
+  padding-left: 10px;
+}
+
+footer {
+  width: 100%;
+  height: 100%;
+  background-color: var(--blackish);
+}
+
+footer a {
+  color: var(--darkish-white);
+  padding: 1em;
 }
 
 /* Extras */
 .aligned-center {
   align-items: center;
 }
+
 
