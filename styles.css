@@ -23,6 +23,11 @@ body {
   overflow-x: hidden;
 }
 
+a {
+  color: var(--darkish-white);
+  text-decoration: none;
+}
+
 #navbar {
   width: 100vw;
   height: 12vh;
@@ -37,8 +42,6 @@ body {
   padding: 12px 20px;
   height: 100%;
   font-size: 22px;
-  color: var(--darkish-white);
-  text-decoration: none;
 }
 
 #navbar a:hover {
@@ -75,26 +78,27 @@ h1 {
 /* Projects Section */
 #projects {
   background: var(--hover-and-bg-color);
-  padding: 25px 0;
-}
-
-#projects h2 {
-  padding: 75px 20px 5px;
-  margin-bottom: 75px;
-  border-bottom: white solid 3px;
-  border-radius: 2px;
-  font-size: 36px;
+  padding: 75px 10px;
   text-align: center;
 }
 
+#projects h2 {
+  padding: 7px 20px;
+  margin-bottom: 75px;
+  font-size: 36px;
+  display: inline-block;
+  border-bottom: white solid 3px;
+  border-radius: 2px;
+}
+
 #projects-grid {
-  margin: 2em;
+  margin: 0 3em 2.5em;
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   align-items: center;
-  gap: 2.5em;
+  gap: 3em;
 }
 
 .project {
@@ -141,38 +145,84 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Calibri', sans-serif;
-  font-size: 20px;
+  font-family: 'Ra;eway', sans-serif;
+  font-size: 22px;
   color: var(--darkish-white);
   background-color: var(--blackish);
-  border-radius: 4px;
-  padding: 5px 20px;
+  border: 0;
+  border-radius: 3px;
+  padding: 7px 20px;
+  margin-top: 1em;
 }
 
 #show-all-projects-btn:hover {
   background-color: var(--reddish);
 }
 
-#arrow {
-  font-weight: 500;
-  font-size: 32px;
-  padding-left: 10px;
-}
-
 footer {
   width: 100%;
   height: 100%;
   background-color: var(--blackish);
+  display: grid;
+}
+
+footer h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 56px;
+  padding: 1.5em 0 10px;
+  display: flex;
+  justify-content: center;
+}
+
+footer .coffee {
+  font-size: 20px;
+  font-family: 'Raleway', sans-serif;
+  font-style: italic;
+  letter-spacing: 0.7px;
+  display: flex;
+  justify-content: center;
+}
+
+#socials {
+  font-size: 24px;
+  padding: 1.2em 0 5em;
+  display: flex;
+  justify-content: center;
 }
 
 footer a {
-  color: var(--darkish-white);
   padding: 1em;
+}
+
+.freeCodeCampProject {
+  width: 100%;
+  padding: 1.6em;
+  border-top: var(--reddish) 4px solid;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.freeCodeCampProject p {
+  font-size: 16px;
+  display: flex;
+}
+
+.freeCodeCampProject p:last-child {
+  justify-content: flex-end;
+}
+
+#link-camp {
+  padding: 4px;
+  text-decoration: underline;
 }
 
 /* Extras */
 .aligned-center {
   align-items: center;
+}
+
+.icon {
+  padding: 7px;
 }
 
 
