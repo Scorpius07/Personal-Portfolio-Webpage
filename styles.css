@@ -58,7 +58,6 @@ a {
   background: var(--gradient-bg-color);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -96,8 +95,6 @@ h1 {
   display: grid;
   grid-template-rows: repeat(2, 1fr);
   grid-template-columns: repeat(2, 1fr);
-  justify-content: center;
-  align-items: center;
   gap: 3em;
 }
 
@@ -108,10 +105,8 @@ h1 {
   grid-template-rows: 4fr 1fr;
 }
 
-.project .image-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.project:hover .project-title::before, .project:hover .project-title::after {
+  animation: color-change 0.1s ease forwards;
 }
 
 .project img {
@@ -119,44 +114,61 @@ h1 {
   height: 100%;
 }
 
-.project .title-link {
+.title-link {
   width: 100%;
   height: 100%;
-  text-decoration: none;
   font-size: 20px;
   color: var(--darkish-white);
   background: var(--gradient-bg-color);
   grid-area: 2 / 1 / 3 / 2;
 }
 
-.project .project-title {
+.project-title {
   height: 100%;
+  font-weight: normal;
   display: flex;
-  justify-content: center;
 }
 
-.cont {
+.project-title::before {
+  content: '<';
+  font-size: 16px;
+  padding-right: 10px;
+}
+
+.project-title::after {
+  content: '/>';
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.button-link {
   text-decoration: none;
   display: flex;
-  justify-content: center;
 }
 
 #show-all-projects-btn {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Ra;eway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 22px;
   color: var(--darkish-white);
   background-color: var(--blackish);
   border: 0;
   border-radius: 3px;
-  padding: 7px 20px;
+  padding: 7px 15px;
   margin-top: 1em;
 }
 
 #show-all-projects-btn:hover {
+  transition: background-color 1s ease-out;
   background-color: var(--reddish);
+}
+
+.arrow {
+  transition: transform 0.75s ease-in-out;
+}
+
+#show-all-projects-btn:hover .arrow {
+  transform: translateX(7px);
 }
 
 footer {
@@ -171,7 +183,6 @@ footer h2 {
   font-size: 56px;
   padding: 1.5em 0 10px;
   display: flex;
-  justify-content: center;
 }
 
 footer .coffee {
@@ -180,18 +191,21 @@ footer .coffee {
   font-style: italic;
   letter-spacing: 0.7px;
   display: flex;
-  justify-content: center;
 }
 
 #socials {
   font-size: 24px;
   padding: 1.2em 0 5em;
   display: flex;
-  justify-content: center;
 }
 
 footer a {
   padding: 1em;
+  transition: transform 0.4s ease-in-out;
+}
+
+footer a:not(#link-camp):hover {
+  transform: translateY(10px);
 }
 
 .freeCodeCampProject {
@@ -216,7 +230,21 @@ footer a {
   text-decoration: underline;
 }
 
+/* Keyframes */
+@keyframes color-change {
+  from {
+    color: var(--darkish-white);
+  }
+  to {
+    color: orange;
+  }
+}
+
 /* Extras */
+.justified-center {
+  justify-content: center;
+}
+
 .aligned-center {
   align-items: center;
 }
@@ -225,4 +253,57 @@ footer a {
   padding: 7px;
 }
 
+/* Media Query -- Screens with less than 400px width */
+@media (max-width: 400px) {
+  #navbar {
+    justify-content: center;
+  }
 
+  #navbar a:last-child {
+    margin-right: 0px;
+  }
+
+  h1 {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  #projects-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    margin: 0 1em 2.5em;
+  }
+
+  .project {
+    height: 50vh;
+  }
+
+  .project-title {
+    flex-wrap: wrap;
+  }
+
+  footer {
+    padding: 10px;
+  }
+
+  footer h2 {
+    padding: 1.5em 7px 10px;
+  }
+
+  .freeCodeCampProject {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  #socials {
+    display: grid;
+    padding: 1.2em 0 3em;
+  }
+
+  .link-camp {
+    display: inline;
+  }
+}
